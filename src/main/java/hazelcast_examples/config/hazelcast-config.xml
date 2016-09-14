@@ -4,8 +4,8 @@
 
 	<group>
 		<!-- 在多个instance之间进行隔离.name和password相同的才可以进行通信 -->
-		<name>dev</name>
-		<password>dev-pass</password>
+		<name>dev-group</name>
+		<password>dev-group-pass</password>
 	</group>
 
 	<license-key>Your Enterprise License Key</license-key>
