@@ -1,0 +1,77 @@
+<hazelcast
+	xsi:schemaLocation="http://www.hazelcast.com/schema/config hazelcast-config-3.7.xsd"
+	xmlns="http://www.hazelcast.com/schema/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="default">
+
+	<group>
+		<!-- 在多个instance之间进行隔离.name和password相同的才可以进行通信 -->
+		<name>dev</name>
+		<password>dev-pass</password>
+	</group>
+
+	<license-key>Your Enterprise License Key</license-key>
+	<instance-name>Instance-Demo</instance-name>
+	<management-center enabled="true" update-interval="3">http://localhost:8080/mancenter</management-center>
+	
+	<properties>
+		  <property name="hazelcast.logging.type">slf4j</property>
+		  <property name="hazelcast.operation.call.timeout.millis">30000</property>
+		  <property name="hazelcast.memcache.enabled">false</property>
+		  <property name="hazelcast.rest.enabled">false</property>
+	</properties>
+<!--group></group>
+<license-key></license-key>
+<instance-name></instance-name>
+<management-center></management-center>
+<properties></properties>
+<wan-replication></wan-replication>
+<network></network>
+<partition-group></partition-group>
+<executor-service></executor-service>
+<durable-executor-service></durable-executor-service>
+<queue></queue>
+<map></map>
+<multimap></multimap>
+<replicatedmap></replicatedmap>
+<cache></cache>
+<list></list>
+<set></set>
+<topic></topic>
+<reliable-topic></reliable-topic>
+<jobtracker></jobtracker>
+<semaphore></semaphore>
+<ringbuffer></ringbuffer>
+<listeners></listeners>
+<serialization></serialization>
+<native-memory></native-memory>
+<services></services>
+<security></security>
+<member-attributes></member-attributes>
+<quorum></quorum>
+<lite-member></lite-member>
+<hot-restart-persistence></hot-restart-persistence-->
+
+	
+	<network>
+	    <!-- 在一台服务器拥有多块网上的时候,来配置使用哪个ip -->
+		<interfaces enabled="true">
+			<interface>127.0.0.1</interface>
+		</interfaces>
+		<!-- 不同的节点所使用的端口是否自增(默认为true,从5701开启) -->
+		<port auto-increment="true">5701</port>
+		<join>
+			<!-- 要进行基于广播的 集群时,下面的enable要为true。可以同时指定要进行广播的ip和端口 -->
+			<multicast enabled="false">
+				<multicast-group>224.2.2.3</multicast-group>
+				<multicast-port>54327</multicast-port>
+			</multicast>
+			<!-- 要进行基于ip的 集群时,下面的enable要为true,而multicast的enable要为false。通过指定要进行集群的ip地址 -->
+			<tcp-ip enabled="true">
+				<!-- 要进行 集群时,若连接required-member指定的node出错时，当前instance启动失败 -->
+				<required-member>127.0.0.1</required-member>
+				<member>localhost</member>
+				<member>127.0.0.1</member>
+			</tcp-ip>
+
+		</join>
+	</network>
+</hazelcast>

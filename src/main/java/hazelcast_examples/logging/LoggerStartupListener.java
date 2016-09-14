@@ -1,4 +1,4 @@
-package com.hazelcast.logging;
+package hazelcast_examples.logging;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
