@@ -1,4 +1,4 @@
-package hazelcast_examples.query;
+package hazelcast_examples.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;

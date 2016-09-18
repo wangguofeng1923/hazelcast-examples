@@ -18,6 +18,9 @@ import com.hazelcast.core.IMap;
 import com.hazelcast.query.EntryObject;
 import com.hazelcast.query.Predicate;
 import com.hazelcast.query.PredicateBuilder;
+import com.hazelcast.query.SqlPredicate;
+
+import hazelcast_examples.domain.Employee;
 
 public class QueryDemo {
 	public static void main(String[] args) throws FileNotFoundException {
@@ -32,6 +35,10 @@ public class QueryDemo {
 		Collection<Employee>coll=map.values( predicate );
 //		Set<Employee> employees = map.values( predicate );
 		System.out.println(coll.size());
+		
+		
+		Collection<Employee> employees = map.values( new SqlPredicate( "active AND age < 30" ) );
+		System.out.println(employees.size());
 	}
 	private static void startInstance(){
 		Config config = new Config();

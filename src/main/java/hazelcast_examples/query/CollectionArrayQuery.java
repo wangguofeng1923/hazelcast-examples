@@ -9,6 +9,8 @@ import com.hazelcast.query.Predicate;
 import com.hazelcast.query.Predicates;
 import com.hazelcast.query.SqlPredicate;
 
+import hazelcast_examples.domain.Office;
+
 public class CollectionArrayQuery {
 	public static void main(String[] args) {
 		HazelcastInstance hazelcastInstance=Hazelcast.newHazelcastInstance();

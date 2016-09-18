@@ -11,6 +11,8 @@ import com.hazelcast.map.EntryProcessor;
 import com.hazelcast.query.Predicate;
 import com.hazelcast.query.Predicates;
 
+import hazelcast_examples.domain.Employee;
+
 public class IndexQuery {
 	public static void main(String[] args) {
 		HazelcastInstance hazelcastInstance=Hazelcast.newHazelcastInstance();
